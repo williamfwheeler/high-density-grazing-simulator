@@ -38,13 +38,15 @@ class Plot:
         self.paddock_list = []
         
     def add_paddock(self,paddock):
-        paddock_list.append(paddock)
-        paddock_count+=1
+        self.paddock_list.append(paddock)
+        self.paddock_count+=1
     
     def remove_paddock(self,paddock_name):
-        for x in range(len(paddock_list)):
-            if paddock_list[x] == paddock_name:
-                paddock_list.pop(x)
+        for x in range(len(self.paddock_list)):
+            if self.paddock_list[x] == paddock_name:
+                self.paddock_list.pop(x)
+                self.paddock_count-=1
+                break
     
 #     def optimize_paddocks(self, target_utilization):
 #     def optimize_paddock_uniform():
