@@ -23,5 +23,25 @@ class test_high_density_grazing(unittest.TestCase):
         self.assertEqual(test.paddock_count,1)
         self.assertEqual(test.paddock_list,['name2'])
 
+
+    def test_Herd(self):
+        test = hdg.Herd(30000)
+        # confirm variable setup
+        self.assertEqual(test.avg_head_weight,1200)
+        self.assertEqual(test.body_weight_eaten,0.025)
+        self.assertEqual(test.body_weight_eaten_lb,30)
+        self.assertEqual(test.herd_forage_need,750.0)
+
+        test = hdg.Herd(30000,1400,0.4)
+        # confirm variable setup
+        self.assertEqual(test.avg_head_weight,1400)
+        self.assertEqual(test.body_weight_eaten,0.4)
+        self.assertEqual(test.body_weight_eaten_lb,560)
+        self.assertEqual(test.herd_forage_need,12000)
+
+    # def test_Paddock_setup(self):
+
+        
+
 if __name__=='__main__':
     unittest.main()
