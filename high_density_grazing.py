@@ -108,7 +108,7 @@ class Paddock:
         else:
 #             adjust forage availability variables accordingly
             self.dry_matter_available = self.dry_matter_available - implied_forage_needed
-            self.forage_height = self.dry_matter_available / (self.dry_matter_per_inch_acre*self.acreage)
+            self.forage_height = self.max_dry_matter / self.acreage / self.dry_matter_per_inch_acre
             self.utilization = self.dry_matter_available / self.max_dry_matter
             
     def regrow(self):
