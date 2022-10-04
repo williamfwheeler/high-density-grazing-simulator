@@ -87,7 +87,7 @@ class Paddock:
 
             days_on_paddock = feed_till_target_available / herd.herd_forage_need
 
-    #         reset forage availability variables (utilization, forage_height, dry_matter_available)
+    #         reset persistent forage availability variables (utilization, forage_height, dry_matter_available)
 
             self.utilization = utilization_target
 
@@ -108,7 +108,7 @@ class Paddock:
 #             raise Exception('ERROR: more feed required than is available')
             raise Exception("Max of {0} days on paddock to graze to 0 utilization".format(days_on_paddock))
         else:
-#             adjust forage availability variables accordingly
+#             adjust persistent forage availability variables 
             self.dry_matter_available = self.dry_matter_available - implied_forage_needed
             self.forage_height = self.max_dry_matter / self.acreage / self.dry_matter_per_inch_acre
             self.utilization = self.dry_matter_available / self.max_dry_matter
@@ -116,7 +116,7 @@ class Paddock:
     def regrow(self):
 #         regrow plot command to be signalled after recovery period
 
-    #             adjust forage availability variables accordingly
+    #             adjust persistent forage availability variables 
         self.dry_matter_available = self.max_dry_matter
         self.forage_height = self.max_dry_matter / self.dry_matter_per_inch_acre
         self.utilization = 1.0
