@@ -39,7 +39,28 @@ class test_high_density_grazing(unittest.TestCase):
         self.assertEqual(test.body_weight_eaten_lb,560)
         self.assertEqual(test.herd_forage_need,12000)
 
-    # def test_Paddock_setup(self):
+    def test_Paddock_graze_target(self):
+        test = hdg.Paddock(200,20)
+        herd = hdg.Herd(200)
+        self.assertEqual(test.dry_matter_available,800000)
+
+        # confirm grazing spills down to other persistent variables
+        test.graze_target_util(herd,0.5)
+        self.assertEqual(test.forage_height,10)
+        self.assertEqual(test.utilization,0.5)
+        self.assertEqual(test.dry_matter_available,400000)
+
+        # confirm no additional grazing days available after graze
+        self.assertEqual(test.graze_target_util(herd,0.5),0)
+
+    # def test_Paddock_graze_days(self):
+    #     test = hdg.Paddock(50,20)
+    #     herd = hdg.Herd(30000)
+    #     test.graze_days(herd,6)
+
+    #     self.assertEqual(test.dry_matter_available,195500.0)
+    #     self.assertEqual(test.utilization,0.9775)
+    #     self.assertEqual(test.forage_height,19.55)
 
         
 
