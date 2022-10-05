@@ -4,7 +4,7 @@ class Optimizations:
 
     '''ADD DESCRIPTIONS AND COMMENTARY'''
 
-    def potential_herd_weight(self,plot,no_of_paddocks,proxy_herd,proxy_paddock,target_density,target_utilization):
+    def potential_herd_weight(self,plot,no_of_paddocks,proxy_herd,proxy_paddock,target_utilization):
     
         plotlengthneeded = proxy_paddock.regrowth_period/(no_of_paddocks-1)
         
@@ -20,7 +20,7 @@ class Optimizations:
 
 
     
-    def acres_needed(self,herd,no_of_paddocks,proxy_paddock,target_density,target_utilization):
+    def acres_needed(self,herd,no_of_paddocks,proxy_paddock,target_utilization):
     
         plotlengthneeded = proxy_paddock.regrowth_period/(no_of_paddocks-1)
         
