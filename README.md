@@ -87,11 +87,16 @@ benefit_lb = 15,763
 benefit_head = round((max_herd2 - max_herd1)/proxy_herd.avg_head_weight) = 13
 ```
 
-## Disclaimers
-
-
 ## Future Improvements
+The ultimate output of this optimization is a ```list_of_paddocks``` of ```Paddock()``` objects with the resulting specs inherited to these objects. As it stands there is some unused functionality built-in to each of the classes. 
 
+While it is unnecessary for the initial optimziation, it lays the groundwork for using this as a live tracking tool where each paddock ```utilization``` and ```regrowth_period``` is used and regrows with incremental benefit to density over time (thus the utilization, and ```regrow()``` functionality inherent to ```Paddock()```). This could be paddock by paddock simulator or a simple digital version of the form found in the USDA PDF below.
+
+Finally, a more sophisticated, future optimization would take in an existing plot as a conglomeration of paddocks. In this way, you could subdivide a plot with heterogeneous chracteristics taking into account varying densities and sizes. 
+
+<!-- ## Disclaimers
+
+ -->
 
 ## References & Resources
 I sourced most of key assumptions from this USDA document.
