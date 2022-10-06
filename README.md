@@ -22,6 +22,9 @@ optimized_herd = Herd(max_herd,avg_head_weight,body_weight_eaten_daily)
 result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
 ```
 
+<p align="center">
+  <img src="./images/plant_density_illustration.png" width="620px">
+</p>
 
 ## Demo Walkthrough
 
@@ -34,6 +37,7 @@ result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_he
 
 ## References & Resources
 I sourced most of key assumptions from this USDA document.
+
 [USDA PDF explaining HDG](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=nrcseprd1630415&ext=pdf)
 
 [Noble Research Institute](https://www.noble.org/news/publications/ag-news-and-views/2019/april/what-is-high-stock-density-grazing/#:~:text=High%20stock%20density%20grazing%20begins,forages%20and%20ultimately%20livestock%20production.)
