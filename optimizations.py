@@ -36,11 +36,6 @@ def acres_needed(herd,no_of_paddocks,proxy_paddock,target_utilization):
 # determine optimal paddock structure given plot and herd characteristics
 def optimize_paddock_structure(plot,herd,proxy_paddock,target_density,target_utilization):
     
-    '''Need to account for excess room in plot OR too little room
-        if too much, provide potential capacity given
-        if too little, provide error or excess feed required (changing density doesn't change the math
-        that there's too little feed)'''
-    
 #     optimal paddock size given density
     paddock_size = herd.herd_weight / target_density
     
