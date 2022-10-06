@@ -22,9 +22,9 @@ def acres_needed(herd,no_of_paddocks,proxy_paddock,target_utilization):
 
     plotlengthneeded = proxy_paddock.regrowth_period/(no_of_paddocks-1)
     
-    herd90dayneed = herd.herd_forage_need*plotlengthneeded
+    herddayneed = herd.herd_forage_need*plotlengthneeded
     
-    acres_needed_per_paddock = herd90dayneed/(proxy_paddock.forage_height*
+    acres_needed_per_paddock = herddayneed/(proxy_paddock.forage_height*
                                         proxy_paddock.dry_matter_per_inch_acre*target_utilization)
     
     acres_needed = acres_needed_per_paddock * no_of_paddocks
