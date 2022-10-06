@@ -60,34 +60,7 @@ class Optimizations:
         paddock_list = [Paddock(paddock_size,proxy_paddock.forage_height,proxy_paddock.regrowth_period,
                                 proxy_paddock.dry_matter_per_inch_acre) for x in range(paddocks_needed)]
         
-        
-        '''MISSING LOGIC FOR SURPLUS/DEFICIT LAND HANDLING'''
-        
-    # #     determine options of land surplus/deficit
-    #     if plot.total_acreage > total_acres_needed:
-            
-    #         surplus_acreage = plot.total_acreage - total_acres_needed
-            
-    # #         size of herd if all land was used
-    #         stock_potential_ratio = plot.total_acreage/(total_acres_needed)
-            
-    #         potential_herd = (herd.herd_weight*stock_potential_ratio)
-            
-    #         return WHATXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-            
-    #     elif plot.total_acreage < total_acres_needed:
-            
-    #         deficit_acreage = total_acres_needed - plot.total_acreage
-            
-    #         feed_available = 
-            
-            
-            
-            
-            
-            
-            
-        
+
         
         return paddock_list, paddocks_needed, paddock_size, length_of_stay, total_acres_needed, cycle_time
 
