@@ -1,6 +1,6 @@
 from xml.etree.ElementTree import tostring
 from high_density_grazing import Herd,Plot,Paddock
-from optimizations import Optimizations as opt
+from optimizations import *
 import inspect
 
 # Plot Characteristics
@@ -28,6 +28,7 @@ proxy_paddock = Paddock(1,forage_height,regrowth_period,dry_matter_per_inch_acre
 proxy_herd = Herd(200,avg_head_weight,body_weight_eaten_daily)
 
 
-
 # Determine max herd capable of being sustained on land
-max_herd_weight = opt.max_herd_weight(0,plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
+'''if I'm using a class simply to hold functions, how do I write that? Do they need to be self referential?'''
+max_herd = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
+inspect.getfullargspec(max_herd_weight)
