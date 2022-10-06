@@ -47,10 +47,6 @@ class Plot:
                 self.paddock_list.pop(x)
                 self.paddock_count-=1
                 break
-    
-#     def optimize_paddocks(self, target_utilization):
-#     def optimize_paddock_uniform():
-#     def optimize_paddock_specific():
 
 
 
@@ -74,6 +70,8 @@ class Paddock:
         self.utilization = utilization
         self.dry_matter_available = dry_matter_per_inch_acre * forage_height * acreage
         self.max_dry_matter = self.dry_matter_available / utilization
+
+
     
     def graze_target_util(self,herd,utilization_target):
 #     graze till target utilization reached
@@ -97,6 +95,7 @@ class Paddock:
 
             return days_on_paddock
         
+        
     
     def graze_days(self,herd, graze_days):
 #         graze for a set number of days
@@ -112,6 +111,8 @@ class Paddock:
             self.dry_matter_available = self.dry_matter_available - implied_forage_needed
             self.forage_height = self.max_dry_matter / self.acreage / self.dry_matter_per_inch_acre
             self.utilization = self.dry_matter_available / self.max_dry_matter
+
+
             
     def regrow(self):
 #         regrow plot command to be signalled after recovery period
@@ -120,9 +121,3 @@ class Paddock:
         self.dry_matter_available = self.max_dry_matter
         self.forage_height = self.max_dry_matter / self.dry_matter_per_inch_acre
         self.utilization = 1.0
-
-        
-        
-#         return time_till_util_target, dry_feed_provided
-    
-#     def regrow_time()
