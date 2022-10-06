@@ -15,7 +15,7 @@ class Optimizations:
         
         potential_herd_weight = daily_forage_available/proxy_herd.body_weight_eaten
         
-        return round(potential_herd_weight,0)
+        return round(potential_herd_weight,0) #,plotlengthneeded
 
 
 
