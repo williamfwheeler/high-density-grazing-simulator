@@ -68,7 +68,7 @@ class Optimizations:
     # determine max herd_weight given plot
     def max_herd_weight(self,plot,herd,proxy_paddock,target_density,target_utilization):
     
-        potential_herd_weight = potential_herd_weight(plot,4,herd,proxy_paddock,target_utilization)
+        potential_herd_weight = self.potential_herd_weight(plot,4,herd,proxy_paddock,target_utilization)
         
         test_herd = Herd(potential_herd_weight,herd.avg_head_weight,herd.body_weight_eaten)
         
