@@ -99,15 +99,3 @@ I sourced most of key assumptions from this USDA document.
 [USDA PDF explaining HDG](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=nrcseprd1630415&ext=pdf)
 
 [Noble Research Institute](https://www.noble.org/news/publications/ag-news-and-views/2019/april/what-is-high-stock-density-grazing/#:~:text=High%20stock%20density%20grazing%20begins,forages%20and%20ultimately%20livestock%20production.)
-
-
-
-```python
-# Determine max herd capable of being sustained on land
-max_herd = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
-
-optimized_herd = Herd(max_herd,avg_head_weight,body_weight_eaten_daily)
-
-# Determine optimal paddock structure using max_herd
-result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
-```
