@@ -12,19 +12,27 @@ By inputting today's Plot forage characteristics and runnign density we have a b
 As you assume the benefits of high density grazing to plant density, you can run the implied NEW max herd for the same plot of land. The difference between this and the baseline is your implied benefit.
 
 ## Key Variables
-```python
-# Determine max herd capable of being sustained on land
-max_herd = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
+### Plot Characteristics
+```Plot()``` is primarily a holding container for ```total_acreage``` and ```list_of_paddocks```.
 
-optimized_herd = Herd(max_herd,avg_head_weight,body_weight_eaten_daily)
+### Paddock Characteristics
+```Paddock()``` holds all the key characteristics of the land. For future iterations of this model, every paddock will be unique and will hold variables pertaining to its state of usage and recovery. These variables are built into ```Paddock()```, but are  unused in this optimization.
 
-# Determine optimal paddock structure using max_herd
-result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
-```
+For now a ```proxy_paddock``` holds the characteristics of the entire plot as if it were monolithic. These include:
+- ```forage_height```(literal height of forage in inches)
+- ```target_utilization``` (the amount eaten before risking overgrazing)
+- ```dry_matter_per_inch_acre```(plant density, the key variable we hope HDG will affect)
 
 <p align="center">
-  <img src="./images/plant_density_illustration.png" width="620px">
+  <img src="./images/plant_density_illustration.png" width="720px">
 </p>
+
+### Herd Characteristics
+```Herd()``` holds the characteristics of a given herd including:
+- ```avg_head_weight``` (in lbs)
+- ```body_weight_eaten_daily``` (as a %, this is key to determining daily forage need)
+
+As with ```Paddock()``` a ```proxy_herd``` is used to hold the key characteristic (```body_weight_eaten_daily```) for the sake of pasture optimization.
 
 ## Demo Walkthrough
 
@@ -41,3 +49,15 @@ I sourced most of key assumptions from this USDA document.
 [USDA PDF explaining HDG](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=nrcseprd1630415&ext=pdf)
 
 [Noble Research Institute](https://www.noble.org/news/publications/ag-news-and-views/2019/april/what-is-high-stock-density-grazing/#:~:text=High%20stock%20density%20grazing%20begins,forages%20and%20ultimately%20livestock%20production.)
+
+
+
+```python
+# Determine max herd capable of being sustained on land
+max_herd = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
+
+optimized_herd = Herd(max_herd,avg_head_weight,body_weight_eaten_daily)
+
+# Determine optimal paddock structure using max_herd
+result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
+```
