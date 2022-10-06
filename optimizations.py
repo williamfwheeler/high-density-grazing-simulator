@@ -60,7 +60,7 @@ def optimize_paddock_structure(plot,herd,proxy_paddock,target_density,target_uti
     
 
     
-    return paddock_list, paddocks_needed, paddock_size, length_of_stay, total_acres_needed, cycle_time
+    return paddock_list, paddocks_needed, round(paddock_size,2), round(length_of_stay,2), round(total_acres_needed,2), round(cycle_time,2)
 
 
 # determine max herd_weight given plot

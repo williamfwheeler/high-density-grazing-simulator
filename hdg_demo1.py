@@ -17,6 +17,7 @@ target_utilization = 0.50 #as % of forage height eaten
 target_herd_density = 25000 # as herd_lb per acre
 
 
+
 # Load plot acreage into Plot
 plot1 = Plot(total_acreage)
 
@@ -35,5 +36,8 @@ optimized_herd = Herd(max_herd,avg_head_weight,body_weight_eaten_daily)
 # Determine optimal paddock structure using max_herd
 result = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
 
-paddock_list, paddocks_needed, paddock_size, length_of_stay, total_acres_needed, cycle_time = result
 
+
+# Parse results
+paddock_list = result[0]
+paddocks_needed, paddock_size, length_of_stay, total_acres_needed, cycle_time = result[1:]
