@@ -75,11 +75,13 @@ optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_densit
 
 6) Assume benefit to plant density (in ```dry_matter_per_inch_acre```), load to new ```proxy_paddock```, and re-run optimization
 
-<!-- 7) This outputs:
+7) This outputs:
 - List of ```Paddock()``` objects with new characteristics
-- ```[38 paddocks]``` Number of Paddocks to use in subdividing plot
-- ```[5.84 acres]```Ideal Paddock Size
-- ```[2.4 days]``` Length of stay on each Paddock -->
+- ```[34 paddocks]``` Number of Paddocks to use in subdividing plot
+- ```[5.82 acres]```Ideal Paddock Size
+- ```[2.7 days]``` Length of stay on each Paddock
+
+8) The improvement in plant density leads to the ability to provide for ```+15,763``` incremental lb or ```+13``` heads
 
 ## Disclaimers
 
