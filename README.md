@@ -82,6 +82,10 @@ optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_densit
 - ```[2.7 days]``` Length of stay on each Paddock
 
 8) The improvement in plant density leads to the ability to provide for ```+15,763``` incremental lb or ```+13``` heads
+```python
+benefit_lb = 15,763
+benefit_head = round((max_herd2 - max_herd1)/proxy_herd.avg_head_weight) = 13
+```
 
 ## Disclaimers
 
