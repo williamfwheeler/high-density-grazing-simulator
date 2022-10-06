@@ -39,7 +39,7 @@ def optimize_paddock_structure(plot,herd,proxy_paddock,target_density,target_uti
 #     optimal paddock size given density
     paddock_size = herd.herd_weight / target_density
     
-    test = Paddock(paddock_size,proxy_paddock.forage_height)
+    test = Paddock(paddock_size,proxy_paddock.forage_height,proxy_paddock.regrowth_period,proxy_paddock.dry_matter_per_inch_acre)
     
     length_of_stay = test.graze_target_util(herd,target_utilization)
     

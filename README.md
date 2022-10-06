@@ -35,7 +35,51 @@ For now a ```proxy_paddock``` holds the characteristics of the entire plot as if
 As with ```Paddock()``` a ```proxy_herd``` is used to hold the key characteristic (```body_weight_eaten_daily```) for the sake of pasture optimization.
 
 ## Demo Walkthrough
+1) Start by entering all relevant Plot, Paddock, and Herd characteristics
 
+```python
+# Original Plot Characteristics
+total_acreage = 200     #in acres
+forage_height = 15      #in inches
+regrowth_period = 90    #in days
+dry_matter_per_inch_acre = 200  #in lbs
+
+# Herd Characteristics
+avg_head_weight = 1200  #in lbs
+body_weight_eaten_daily = 0.025  # as % of body weight
+
+# Behavioral Targets
+target_utilization = 0.50 #as % of forage height eaten
+target_herd_density = 25000 # as herd_lb per acre
+```
+
+2) Load chracterstics to ```Plot()```,```proxy_paddock```,and ```proxy_herd```
+
+3) Determine max_herd given land characteristics and load to holder ```Herd()```
+```python
+max_herd1 = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,target_utilization)
+
+optimized_herd = Herd(max_herd1,avg_head_weight,body_weight_eaten_daily)
+```
+
+4) Determine optimal paddock structure
+```python
+optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
+```
+
+5) This outputs:
+- List of ```Paddock()``` objects with new characteristics
+- ```[38 paddocks]``` Number of Paddocks to use in subdividing plot
+- ```[5.19 acres]```Ideal Paddock Size
+- ```[2.4 days]``` Length of stay on each Paddock
+
+6) Assume benefit to plant density (in ```dry_matter_per_inch_acre```), load to new ```proxy_paddock```, and re-run optimization
+
+<!-- 7) This outputs:
+- List of ```Paddock()``` objects with new characteristics
+- ```[38 paddocks]``` Number of Paddocks to use in subdividing plot
+- ```[5.84 acres]```Ideal Paddock Size
+- ```[2.4 days]``` Length of stay on each Paddock -->
 
 ## Disclaimers
 

@@ -44,6 +44,38 @@ paddock_list = result1[0]
 paddocks_needed, paddock_size, length_of_stay, total_acres_needed, cycle_time = result1[1:]
 
 
+''' START WORKING ZONE '''
+''' START WORKING ZONE '''
+''' START WORKING ZONE '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+''' END WORKING ZONE '''
+''' END WORKING ZONE '''
+''' END WORKING ZONE '''
 
 # Assume benefit of HDG on plant density and input to new proxy_paddock
 new_dry_matter_per_inch_acre = 225  #in lbs
@@ -56,8 +88,6 @@ optimized_herd2 = Herd(max_herd2,avg_head_weight,body_weight_eaten_daily)
 # Determine optimal paddock structure using max_herd
 result2 = optimize_paddock_structure(plot1,optimized_herd2,proxy_paddock2,target_herd_density,target_utilization)
 
-
-
 # NEW OPTIMAL LAND DIVISION
 # Parse results
 paddock_list2 = result2[0]
@@ -66,3 +96,5 @@ paddocks_needed2, paddock_size2, length_of_stay2, total_acres_needed2, cycle_tim
 
 # IMPLIED BENEFIT OF HDG
 benefit = round((max_herd2 - max_herd1)/proxy_herd.avg_head_weight)
+
+''''SOMETHING IS BROKEN IN SECONDARY OPTIMIZATION'''
