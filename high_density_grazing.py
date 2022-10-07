@@ -71,7 +71,7 @@ class Paddock:
     def graze_target_util(self,herd,utilization_target):
 #     graze till target utilization reached
     
-        if utilization_target < 0 or utilization_target > 1:
+        if utilization_target < 0 or utilization_target >= 1:
             raise Exception("Utilization out of bounds 0.0 - 1.0")
         else:
             incremental_utilization = (self.utilization - utilization_target)
