@@ -4,9 +4,7 @@ class Herd:
     calculated in poundage (herd weight) rather than headcount (per HDG documentation standards)
     
     This dictates appetite and forage required (body_weight_eaten)
-    
-    Herd weight will also be the ultimate measure of success
-    
+
     Herd Variables: herd_weight, avg_head_weight, body_weight_eaten, body_weight_eaten_lb, herd_forage_needed'''
     
     def __init__(self, herd_weight, avg_head_weight=1200, body_weight_eaten=0.025):
@@ -25,8 +23,7 @@ class Herd:
 class Plot:
     
     '''Plot encompasses the entire property and is primarily of use
-    to hold the Paddock class. The plot is intended to be divided into
-    optimal paddocks
+    to hold the Paddock class.
     
     Plot Variables: total_acreage, paddock_list
     
@@ -52,9 +49,7 @@ class Plot:
 
 class Paddock:
     
-    '''Paddock class is the primary functional unit and counterpart to the herd.
-    
-    The paddock holds all information on available feed, time for proper regrowth
+    '''Paddock holds all information on available feed, time for proper regrowth
     and ultimately plant density (the key target variable we're trying to improve.)
     
     Paddock Variables: acreage, forage_height, regrowth_period, dry_matter_per_inch_acre, utilization,
