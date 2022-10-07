@@ -52,16 +52,6 @@ class test_high_density_grazing(unittest.TestCase):
 
         # confirm no additional grazing days available after graze
         self.assertEqual(test.graze_target_util(herd,0.5),0)
-
-    # def test_Paddock_graze_days(self):
-    #     test = hdg.Paddock(50,20)
-    #     herd = hdg.Herd(30000)
-    #     test.graze_days(herd,6)
-
-    #     self.assertEqual(test.dry_matter_available,195500.0)
-    #     self.assertEqual(test.utilization,0.9775)
-    #     self.assertEqual(test.forage_height,19.55)
-
         
 
 if __name__=='__main__':
