@@ -2,7 +2,7 @@ from high_density_grazing import Plot, Paddock, Herd
 from math import ceil
 
 
-
+# determine potential herd weight given no_of_paddocks
 def potential_herd_weight(plot,no_of_paddocks,proxy_herd,proxy_paddock,target_utilization):
 
     plotlengthneeded = proxy_paddock.regrowth_period/(no_of_paddocks-1)
@@ -58,7 +58,7 @@ def optimize_paddock_structure(plot,herd,proxy_paddock,target_density,target_uti
     return paddock_list, paddocks_needed, round(paddock_size,2), round(length_of_stay,2), round(total_acres_needed,2), round(cycle_time,2)
 
 
-# determine max herd_weight given plot
+# determine max herd_weight given plot, paddock-count agnostic
 def max_herd_weight(plot,herd,proxy_paddock,target_density,target_utilization):
 
     proxy_herd_weight = potential_herd_weight(plot,4,herd,proxy_paddock,target_utilization)
