@@ -5,7 +5,7 @@ This script simulates the potential benefit of utilizing the technique High Dens
 High Density Grazing is a tehchnique that ultimately seeks to improve the fertility of the pastures by using a denser, combined herd. The combined manure and trampling of this denser, single herd, moved regularly from paddock to paddock (where suitable recovery time is allowed) leads to greater plant density on regrowth. More plant material per acre can then support more cattle/sheep/bison/shaak.
 
 ## Model Intent
-The intent of this model is to provide the max herd size that can sustainably be kept on a given plot. Optimize_paddock_structre returs how many subdivided pastures/paddocks will be necessary and how long teh combined herd can stay on each paddock. 
+The intent of this model is to provide the max herd size that can sustainably be kept on a given plot. Optimize_paddock_structre returs how many subdivided pastures/paddocks will be necessary and how long the combined herd can stay on each paddock. 
 
 By inputting today's Plot forage characteristics and runnign density we have a baseline for improvement. The key variable that we are seeking to affect is plant density (in terms of lb_per_inch_acre). 
 
