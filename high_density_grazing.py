@@ -65,6 +65,7 @@ class Paddock:
         self.utilization = utilization
         self.dry_matter_available = dry_matter_per_inch_acre * forage_height * acreage
         self.max_dry_matter = self.dry_matter_available / utilization
+        self.max_forage_height = self.forage_height / utilization
 
 
     
@@ -74,17 +75,16 @@ class Paddock:
         if utilization_target < 0 or utilization_target >= 1:
             raise Exception("Utilization out of bounds 0.0 - 1.0")
         else:
-            incremental_utilization = (self.utilization - utilization_target)
+            # incremental_utilization = (self.utilization - utilization_target)
+            till_target_forage = self.max_dry_matter * (self.utilization-utilization_target)
 
-            feed_till_target_available = self.dry_matter_available * incremental_utilization
-
-            days_on_paddock = feed_till_target_available / herd.herd_forage_need
+            days_on_paddock = till_target_forage / herd.herd_forage_need
 
     #         reset persistent forage availability variables (utilization, forage_height, dry_matter_available)
 
             self.utilization = utilization_target
 
-            self.forage_height = self.forage_height - (self.forage_height*incremental_utilization)
+            self.forage_height = self.max_forage_height * utilization_target
 
             self.dry_matter_available = self.dry_matter_per_inch_acre * self.forage_height * self.acreage
 
@@ -114,5 +114,5 @@ class Paddock:
 
     #             adjust persistent forage availability variables 
         self.dry_matter_available = self.max_dry_matter
-        self.forage_height = self.max_dry_matter / self.dry_matter_per_inch_acre
+        self.forage_height = self.max_forage_height
         self.utilization = 1.0
