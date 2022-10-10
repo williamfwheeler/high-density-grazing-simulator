@@ -35,7 +35,7 @@ max_herd1 = max_herd_weight(plot1,proxy_herd,proxy_paddock,target_herd_density,t
 optimized_herd = Herd(max_herd1,avg_head_weight,body_weight_eaten_daily)
 
 # Determine optimal paddock structure using max_herd
-result1 = optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_density,target_utilization)
+result1 = optimize_paddock_structure(optimized_herd,proxy_paddock,target_herd_density,target_utilization)
 
 
 # INITIAL OPTIMAL LAND DIVISION
@@ -54,7 +54,7 @@ max_herd2 = max_herd_weight(plot1,proxy_herd,proxy_paddock2,target_herd_density,
 optimized_herd2 = Herd(max_herd2,avg_head_weight,body_weight_eaten_daily)
 
 # Determine optimal paddock structure using max_herd
-result2 = optimize_paddock_structure(plot1,optimized_herd2,proxy_paddock2,target_herd_density,target_utilization)
+result2 = optimize_paddock_structure(optimized_herd2,proxy_paddock2,target_herd_density,target_utilization)
 
 # NEW OPTIMAL LAND DIVISION
 # Parse results

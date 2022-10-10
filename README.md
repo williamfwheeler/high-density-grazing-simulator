@@ -5,9 +5,9 @@ This script simulates the potential benefit of utilizing the technique High Dens
 High Density Grazing is a tehchnique that ultimately seeks to improve the fertility of the pastures by using a denser, combined herd. The combined manure and trampling of this denser, single herd, moved regularly from paddock to paddock (where suitable recovery time is allowed) leads to greater plant density on regrowth. More plant material per acre can then support more cattle/sheep/bison/shaak.
 
 ## Model Intent
-The intent of this model is to provide the max herd size that can sustainably be kept on a given plot. Optimize_paddock_structre returs how many subdivided pastures/paddocks will be necessary and how long the combined herd can stay on each paddock. 
+The intent of this model is to provide the max herd size that can sustainably be kept on a given plot. Optimize_paddock_structure returns how many subdivided pastures/paddocks will be necessary and how long the combined herd can stay on each paddock. 
 
-By inputting today's Plot forage characteristics and runnign density we have a baseline for improvement. The key variable that we are seeking to affect is plant density (in terms of lb_per_inch_acre). 
+By inputting today's Plot forage characteristics and running density we have a baseline for improvement. The key variable that we are seeking to affect is plant density (in terms of lb_per_inch_acre). 
 
 As you assume the benefits of high density grazing to plant density, you can run the implied NEW max herd for the same plot of land. The difference between this and the baseline is your implied benefit.
 
@@ -19,8 +19,8 @@ As you assume the benefits of high density grazing to plant density, you can run
 ```Paddock()``` holds all the key characteristics of the land. For future iterations of this model, every paddock will be unique and will hold variables pertaining to its state of usage and recovery. These variables are built into ```Paddock()```, but are  unused in this optimization.
 
 For now a ```proxy_paddock``` holds the characteristics of the entire plot as if it were monolithic. These include:
-- ```forage_height```(literal height of forage in inches)
-- ```target_utilization``` (the amount eaten before risking overgrazing)
+- ```forage_height``` (literal height of forage in inches)
+- ```target_utilization``` (the amount as a % of max_forage LEFT BEHIND, to prevent overgrazing)
 - ```dry_matter_per_inch_acre```(plant density, the key variable we hope HDG will affect)
 
 <p align="center">
@@ -53,7 +53,7 @@ target_utilization = 0.50 #as % of forage height eaten
 target_herd_density = 25000 # as herd_lb per acre
 ```
 
-2) Load chracterstics to ```Plot()```,```proxy_paddock```,and ```proxy_herd```
+2) Load chracterstics to ```Plot()```, ```proxy_paddock```, and ```proxy_herd```
 
 3) Determine max_herd given land characteristics and load to holder ```Herd()```
 ```python
@@ -69,22 +69,22 @@ optimize_paddock_structure(plot1,optimized_herd,proxy_paddock,target_herd_densit
 
 5) This outputs:
 - List of ```Paddock()``` objects with new characteristics
-- ```[38 paddocks]``` Number of Paddocks to use in subdividing plot
-- ```[5.19 acres]```Ideal Paddock Size
+- ```[37 paddocks]``` Number of Paddocks to use in subdividing plot
+- ```[5.33 acres]``` Ideal Paddock Size
 - ```[2.4 days]``` Length of stay on each Paddock
 
 6) Assume benefit to plant density (in ```dry_matter_per_inch_acre```), load to new ```proxy_paddock```, and re-run optimization
 
 7) This outputs:
 - List of ```Paddock()``` objects with new characteristics
-- ```[34 paddocks]``` Number of Paddocks to use in subdividing plot
-- ```[5.82 acres]```Ideal Paddock Size
+- ```[33 paddocks]``` Number of Paddocks to use in subdividing plot
+- ```[6.0 acres]``` Ideal Paddock Size
 - ```[2.7 days]``` Length of stay on each Paddock
 
 8) The improvement in plant density leads to the ability to provide for ```+15,763``` incremental lb or ```+13``` heads
 ```python
-benefit_lb = 15,763
-benefit_head = round((max_herd2 - max_herd1)/proxy_herd.avg_head_weight) = 13
+benefit_lb = 16,667
+benefit_head = round((max_herd2 - max_herd1)/proxy_herd.avg_head_weight) = 14
 ```
 
 ## Future Improvements
@@ -99,7 +99,7 @@ Finally, a more sophisticated, future optimization would take in an existing plo
  -->
 
 ## References & Resources
-I sourced most of key assumptions from this USDA document.
+I sourced most of key assumptions from the below USDA document.
 
 [USDA PDF explaining HDG](https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=nrcseprd1630415&ext=pdf)
 
