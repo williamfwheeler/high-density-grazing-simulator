@@ -4,28 +4,23 @@ import optimizations as opt
 
 class test_optimizations(unittest.TestCase):
 
-    def test_Plot(self):
-        test = hdg.Plot(200)
+    def test_optimize_paddock_structure(self):
+        plot1 = hdg.Plot(200)
+        proxy_herd = hdg.Herd(30000)
+        proxy_paddock = hdg.Paddock(200,15)
+        target_utilization = 0.75
+        target_density = 25000
 
-        # default value of paddock_count
-        a = test.paddock_count
-        self.assertEqual(a,0)
+        herd_possible = opt.max_herd_weight(plot1,proxy_herd,proxy_paddock,target_density,target_utilization)
+        new_herd = hdg.Herd(herd_possible)
 
-        # add_paddock working
-        test.add_paddock('name1')
-        test.add_paddock('name2')
-        self.assertEqual(test.paddock_count,2)
+        test = opt.optimize_paddock_structure(new_herd,proxy_paddock,target_density,target_utilization)
+        land_needed = test[4]
 
-        # paddock_list working
-        self.assertEqual(test.paddock_list,['name1','name2'])
-        
         # remove_paddock working
-        test.remove_paddock('name1')
-        self.assertEqual(test.paddock_count,1)
-        self.assertEqual(test.paddock_list,['name2'])
+        self.assertEqual(land_needed,plot1.total_acreage)
 
 
-        
 
 if __name__=='__main__':
     unittest.main()
