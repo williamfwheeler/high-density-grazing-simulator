@@ -45,13 +45,27 @@ class test_high_density_grazing(unittest.TestCase):
         self.assertEqual(test.dry_matter_available,800000)
 
         # confirm grazing spills down to other persistent variables
-        test.graze_target_util(herd,0.5)
-        self.assertEqual(test.forage_height,10)
-        self.assertEqual(test.utilization,0.5)
-        self.assertEqual(test.dry_matter_available,400000)
+        test.graze_target_util(herd,0.7)
+        self.assertEqual(test.forage_height,14)
+        self.assertEqual(test.utilization,0.7)
+        self.assertEqual(test.dry_matter_available,560000)
 
         # confirm no additional grazing days available after graze
-        self.assertEqual(test.graze_target_util(herd,0.5),0)
+        self.assertEqual(test.graze_target_util(herd,0.7),0)
+
+    def test_regrow(self):
+        test = hdg.Paddock(100,10)
+        herd = hdg.Herd(200)
+        self.assertEqual(test.utilization,1)
+        self.assertEqual(test.forage_height,10)
+        self.assertEqual(test.max_forage_height,10)
+
+        test.graze_target_util(herd,0.7)
+        test.regrow()
+        self.assertEqual(test.utilization,1)
+        self.assertEqual(test.forage_height,10)
+        self.assertEqual(test.max_forage_height,10)
+
         
 
 if __name__=='__main__':
