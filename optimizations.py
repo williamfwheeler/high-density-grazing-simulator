@@ -1,5 +1,5 @@
 from high_density_grazing import Plot, Paddock, Herd
-from math import ceil
+from math import floor
 
 
 # determine potential herd weight given no_of_paddocks
@@ -44,7 +44,7 @@ def optimize_paddock_structure(herd,proxy_paddock,target_density,target_utilizat
     length_of_stay = test.graze_target_util(herd,target_utilization)
     test.regrow()
     
-    paddocks_needed = ceil(proxy_paddock.regrowth_period/length_of_stay)
+    paddocks_needed = floor(proxy_paddock.regrowth_period/length_of_stay)
     
     total_acres_needed = paddocks_needed * paddock_size
     
